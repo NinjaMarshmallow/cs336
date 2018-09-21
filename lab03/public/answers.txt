@@ -1,0 +1,16 @@
+3.1
+
+a) Node.js is a framework that handles running javascript on the server side. It also allows for easy installation of packages to augment vanilla javascript
+
+b) Express.js is a package that can be downloaded using the Node Package Manager that encapsulates web requests and routing including static file serving
+
+
+3.2
+
+a) The files are static because they are resource files that exist before the server runs and can be served to the users. They are not webpages modified by javascript or source code.
+
+b) The server does serve the Hello World message because this message is on a different route than the static files. The routes are built by express.
+
+3.3
+
+a) 

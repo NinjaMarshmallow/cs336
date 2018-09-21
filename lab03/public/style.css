@@ -1,0 +1,21 @@
+body {
+    font-family: "Verdana", sans-serif;
+}
+
+h1 {
+	background-color: orange;
+	color: #555555;
+	font-size: xx-large;
+	
+}
+
+h3 {
+	font-style: italic;
+}
+
+p, li {
+	font-family: serif;
+	padding: 10px;
+	font-size: 16;
+
+}
