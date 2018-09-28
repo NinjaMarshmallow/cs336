@@ -1,0 +1,43 @@
+/* numbered paragraphs */
+
+h3 {
+  border-top: 1px solid gray;
+  text-align: center;
+  clear: left;
+}
+
+h3.numbered {
+	counter-reset: mynum;
+}
+
+li {
+	list-style: lower-roman;
+	margin-bottom: 8px;
+}
+
+
+p.numbered:before {
+	content: "(" counter(mynum, upper-alpha) ")";
+	counter-increment: mynum;
+}
+
+ul, #numbered {
+  border: 1em solid #69b;
+  padding-right:1em;
+  margin: 2em;
+
+}
+
+.oceansList {
+	float: left;
+	padding: 1em;
+}
+
+.paragraphList {
+	float: left;
+	padding: 1em;
+}
+
+#fixed-pin {
+	position: fixed: right;
+}
