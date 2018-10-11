@@ -1,0 +1,26 @@
+Lab 6
+
+	Exercise 1. 
+
+		a) Chrome, Firefox, and other web browsers can only use GET requests and occasionally POST requests for submitting form data because they are built for web browsing for web editing. 
+
+		Curl can send GET, HEAD, PUT, POST, and DELETE requests because Curl is built to be a comprehensive HTTP tool.
+
+		Curl Commands Used:
+
+			curl localhost:3000/request
+			curl --head localhost:3000/request
+			curl -X PUT -d '{"value":"bob"}' localhost:3000/request
+			curl -X POST -d '{"value":"gerald"}' localhost:3000/request
+			curl -X DELETE -d '{"value":"bob"}' localhost:3000/request
+
+		b) The most appropriate HTTP code for undefined routes is the 404 not found error.
+
+	Excercise 2.
+
+		a) Forms usually uses GET to show to the user and POST to send to the webserver, but PUT and DELETE are also supported
+
+		b) The Form data is passed back to the server using the HTTP request method POST. The different fields are combined into a JSON object and sent inside the POST request. The server then unpacks the JSON object into the seperate fields.
+
+
+
