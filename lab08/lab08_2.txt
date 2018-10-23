@@ -1,0 +1,25 @@
+8.2
+
+	a) 
+
+		i. The Component Structure allows the application to be a collection of different connecting blocks rather than a giant web of interconnected code. The component structure makes the project more like a stack of legos than the normal plate of spaghetti that javascript inevitably becomes. The UI is composable because instead of building the application on basic HTML, React returns a tree of components. Being a composable application means that components not directly related on the tree are not dependent on any other components and so those components can be swapped out with minimal impact on the system as a whole.
+
+		ii. JSX is syntactical sugar sprinkled on normal javascript that allows for verbose javascript Factory code which creates HTML to be replaced with HTML tags directly inside javascript itself. It makes the code itself much more readable.
+
+		iii. ReactJS avoids XSS Attacks by using its own objects for each of the html tags. Instead of creating an actual div tag of HTML, ReactJS creates a div object and screens out malicious code inside the object instead of blindly spinning up raw HTML.
+
+		iv. Data always flows through components from the top down. Data is loaded by the outer most object and then injected into the required interal components recursively
+
+		v. props is immutable and owned by the parent component. Since data always flows top down. Children cannot modify their parent's properties. State is mutable because it is internal to the component and so can be modified because the data flow is not attempting to go upstream. This difference maintains the integrity of the consistency of data flow of ReactJS.
+
+	b.
+
+		i. The comments.json can be edited and the edits are reflected in the application because the .json file is acting as the database, so the application is simply reacting (haha) to changes in the database
+
+		ii. Render will re-flash the entire screen, so instead it edits the Virtual DOM, which in turns re-flashes only the single change made, so that the SPA looks less like a web app and more like a normal application.
+
+		iii. Ensuring that all components use the current state removes any ambiguity about whether a component has or hasn't received the new state data
+
+		iv. The app uses optimistic updates to appear faster than it actually is. If the app waited until the server responded to post the comment. The user would be a little confused as to why submitting the form didn't produce any results immediately. If the server rejects the request, the app can simply send an error message to the user explaining that their comment was not posted to the internet and ask them to try again or delete it.
+
+
