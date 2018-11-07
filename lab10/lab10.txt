@@ -1,0 +1,7 @@
+10.1
+
+	a. SQL queries are generally much more readable than their Mongo alter egos. Mongo provides better abstraction of data and faster performance. Mongo is easier to pick up and run with since it is essentially just a python dictionary instead of creating a database schema and designing tables to hold the data most efficiently in terms of space.
+	
+	b. Running Mongo locally gives you more control over the database itself, but you also take on the responsibility of ensuring the database is consistently available
+
+	c. If the maximum of the size of data you need will never approach a half gigabyte, then you won't run out of storage, but your app would still suffer in performance especially in high traffic volumes. Since the sandbox is meant to be a development system, the database performance will likely be throttled under high traffic. It also won't have any implicit security. 

@@ -1,0 +1,18 @@
+9.1
+
+	a. The bundling would combine all the seperate .js files together to speed up the loading of the javascript on the client. The bundle.js is 6.5 kB.
+	b. Babel transpiled the new cutting edge javascript used in development to the older javascript version that can be run on all browsers
+	c. Yes, dist is still able to be used as a static file directory.
+	d. This regular expression checks for .js or .jsx files
+
+9.2
+
+	a. The bundle.js is made up of more files since the comment objects (Comment, CommentForm, CommentBox, CommentList) are now split into different files
+	b. Module imports make the loading more reliable assuming that the modules being loaded are all compatible with each other. Using CDNs runs the risk of the CDN server being down or the server being upgraded to a new version and its package such as jQuery now being in conflict with other loaded packages if it's not backwards compatible
+	c. All of them show up, but they are contained within the bundle.js. The CSS file was not initially loaded because it has to be added manually. 
+
+9.3
+
+	a. On port 3000 the comments are served up in json form under /api/comments. On port 3001, the comments server is running and retrieves the list of comments from the server.js on port 3000. When the comments server js files are edited, the server immediately restarts with the new changes.  
+	b. apparently
+	

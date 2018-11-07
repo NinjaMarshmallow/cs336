@@ -1,0 +1,5 @@
+ Project 1 - Proposal - Jason Klaassen
+
+ I would like to work with Andrew Fuller
+
+We would like to make a tic tac toe game where upon loading the page the player is placed in a lobby of players where each player may challenge another to a game of tic tac toe. When the game ends, the results are recorded and the player is returned to the lobby.
