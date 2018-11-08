@@ -5,3 +5,11 @@
 	b. Running Mongo locally gives you more control over the database itself, but you also take on the responsibility of ensuring the database is consistently available
 
 	c. If the maximum of the size of data you need will never approach a half gigabyte, then you won't run out of storage, but your app would still suffer in performance especially in high traffic volumes. Since the sandbox is meant to be a development system, the database performance will likely be throttled under high traffic. It also won't have any implicit security. 
+
+10.2
+
+	a. npm start just runs the server.js hoping that the bundle.js, index.html and css files are already available, but running npm run dev re-creates the dist folder before running ensuring that the server will start up every time regardless of whether the dist folder exists or not
+
+	b. When adding comments directly to the database, these comments show up on the client browser on the next client-side request for the newest list of comments because the server defers all control over the list of comments to the database. As long as the server runs the client will see all the comments in the database. 
+
+	c. noSQL seems to work pretty well here because it keeps the server.js code very simple. Also the structure of the comments database is very simple, essentially just a list of objects, so there is really no need for any formal structure. SQL would be more appropriate if more complex and connected data were to be stored in the database.

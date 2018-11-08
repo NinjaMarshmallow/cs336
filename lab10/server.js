@@ -16,27 +16,25 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
+// MongoDB variables
+var username = 'cs336'
+var password = process.env.MONGO_PASSWORD
+var host = 'ds253713.mlab.com'
+var port = '53713'
+var database = 'cs336-jwk24'
+var commentsDB = null;
 
-var MongoClient = require('mongodb').MongoClient
+var mclient = require('mongodb').MongoClient
 
-MongoClient.connect('ds253713.mlab.com:53713/cs336-jwk24' + process.env.MONGO_PASSWORD, function (err, client) {
+mclient.connect(`mongodb://${username}:${password}@${host}:${port}/${database}`, function (err, client) {
     if (err) throw err
 
-    var db = client.db('cs336-jwk24')
-
-    db.collection('mammals').find().toArray(function (err, result) {
-    if (err) throw err
-
-    console.log(result)
-    })
+    commentsDB = client.db(database)
+    
     app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
     });
 })
-
-
-
-var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -56,39 +54,21 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/comments', function(req, res) {
-    fs.readFile(COMMENTS_FILE, function(err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        res.json(JSON.parse(data));
-    });
+    // Select all comments from the comments database
+    var commentList = commentsDB.collection('comments').find().toArray((err, result) => {
+        if (err) throw err
+        res.json(result)
+    })
+    
 });
 
-app.post('/api/comments', function(req, res) {
-    fs.readFile(COMMENTS_FILE, function(err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
 
-        var comments = JSON.parse(data);
-        // NOTE: In a real implementation, we would likely rely on a database or
-        // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
-        // treat Date.now() as unique-enough for our purposes.
-        var newComment = {
+app.post('/api/comments', function(req, res) {
+    //Insert submitted comment into the comments database
+    commentsDB.collection('comments').insert({
             id: Date.now(),
             author: req.body.author,
             text: req.body.text,
-        };
-        comments.push(newComment);
-        fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err) {
-            if (err) {
-                console.error(err);
-                process.exit(1);
-            }
-            res.json(comments);
-        });
     });
 });
 
