@@ -1,0 +1,11 @@
+11.1
+
+	a. The development configuration is made to run on the local machine and has the HotReplacement, so that edits are immediately seen on the local browser. But since the production version should be the final product. There is no need to have HotReplacement. Many other optimizers are added to the webpack plugins, which wouldn't make a significant difference in development response time, but will make a very large difference when the load increases with many active users instead of one developer.
+
+	b. UglifyJS refactors variables to the shortest possible variable name and removes all unnecessary whitespace. The evidence can be found in the bundle.js. Babel optimizes speed by combining all the seperate .js files into one bundle.js file so the code can be efficiently transferred from the server to the browser. The OccuranceOrderPlugin indexes all the React modules and gives priority in the Reacter pattern to modules which are frequently used.
+
+11.2
+
+	a.
+
+	b.
