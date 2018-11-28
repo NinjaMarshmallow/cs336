@@ -38,6 +38,14 @@ mclient.connect(`mongodb://${username}:${password}@${host}:${port}/${database}`,
 
 app.set('port', (process.env.PORT || 3000));
 
+app.get('/api/usernames', function(req, res) {
+    var usernamesList = usernamesDB.collection('usernames').find({}).toArray((err, result) => {
+        console.log("Result: " + result);
+        if(err) throw err;
+        res.json(result);
+    });
+});
+
 app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -57,7 +65,7 @@ app.get('/api/comments', function(req, res) {
     // Select all comments from the comments database
     var commentList = commentsDB.collection('comments').find().toArray((err, result) => {
         if (err) throw err
-        res.json(result)
+        res.send(result)
     })
     
 });
