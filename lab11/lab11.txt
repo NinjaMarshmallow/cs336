@@ -6,6 +6,6 @@
 
 11.2
 
-	a.
+	a. Heroku abstracts away the tedium of deploying and maintaining your app manually. It makes deployment much simpler and much faster than if you were to do it yourself especially with the option of auto-deploy after changes are made to the git repository.
 
-	b.
+	b. Heroku assumes that you have created a production webpack config file and it also either assumes that you have overridden the npm install command or runs webpack itself and then executes npm start to launch the app on its own servers.
