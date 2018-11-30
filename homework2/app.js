@@ -118,7 +118,6 @@ app.post('/people', (req, res) => {
 	people.forEach(person => {
 		if(person.loginID == req.body.loginID) {
 			people.remove(person);
-			break;	
 		}
 
 	})
@@ -132,7 +131,6 @@ people.forEach(person => app.put('/people/' + person.loginID, (req, res) => {
 		if(person.loginID == req.body.loginID) {
 			people.remove(person);
 			people.push(req.body);
-			break;
 		}
 	});
 }));
